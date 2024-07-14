@@ -5,15 +5,19 @@ import './Navbar.css'
 import { assets } from '../../assets/assets'
 import { Link } from 'react-router-dom'
 import { StoreContext } from '../../context/StoreContext'
+import { Badge } from 'antd'
 
 const Navbar = ({ setShowLogin }) => {
 	const [menu, setMenu] = React.useState('menu')
 
-	const {getTotalCartAmount} = React.useContext(StoreContext)
+	const { getTotalCartCount, getTotalCartAmount } =
+		React.useContext(StoreContext)
 
 	return (
 		<div className='navbar'>
-			<Link to='/'><img src={assets.logo} alt='' className='logo' /></Link>
+			<Link to='/'>
+				<img src={assets.logo} alt='' className='logo' />
+			</Link>
 			<ul className='navbar-menu'>
 				<Link
 					to='/'
@@ -47,10 +51,24 @@ const Navbar = ({ setShowLogin }) => {
 			<div className='navbar-right'>
 				<img src={assets.search_icon} alt='' />
 				<div className='navbar-search-icon'>
-					<Link to='/cart'><img src={assets.basket_icon} alt='' /></Link>
-					<div className={getTotalCartAmount() === 0 ? '' : 'dot'}></div>
+					<Link to='/cart'>
+						<Badge count={getTotalCartCount()} showZero color='#CA054D'>
+							<img src={assets.basket_icon} alt='' />
+						</Badge>
+					</Link>
 				</div>
-				<button onClick={() => setShowLogin(true)} >Sign in</button>
+				<div className='navbar-search-icon'>
+					<Link to='/cart'>
+						<Badge
+							count={getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}
+							showZero
+							color='#45B69C'
+						>
+							<img src={assets.sack_dollar} alt='' />
+						</Badge>
+					</Link>
+				</div>
+				<button onClick={() => setShowLogin(true)}>Sign in</button>
 			</div>
 		</div>
 	)

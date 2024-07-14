@@ -31,9 +31,23 @@ const StoreContextProvider = props => {
 		return totalAmount
 	}
 
+	
+	const getTotalCartCount = () => {
+		let totalCount = 0
+
+		for (const item in cartItems) {
+			if (cartItems[item] > 0) {
+				totalCount += cartItems[item]
+			}
+		}
+		return totalCount
+	}
+
+		
+
 	// useEffect(() => {
 	// 	console.log(cartItems)
-	// },[cartItems])
+	// })
 
 	const contextValue = {
 		food_list,
@@ -42,6 +56,7 @@ const StoreContextProvider = props => {
 		addToCart,
 		removeFromCart,
 		getTotalCartAmount,
+		getTotalCartCount,
 	}
 
 	return (
