@@ -6,7 +6,7 @@
 }
 
 .navbar .logo {
-	width: 150px;
+	width: 250px;
 }
 
 .navbar-menu {
@@ -27,15 +27,16 @@
 	background-color: transparent;
 	font-size: 16px;
 	color: #49557e;
-	border: 1px solid tomato;
+	border: 1px solid rgb(22, 21, 21);
 	padding: 10px 30px;
-	border-radius: 50px;
+	border-radius: 8px;
 	cursor: pointer;
 	transition: 0.3s;
 }
 
 .navbar button:hover {
-	background-color: #fff4f2;
+	background-color: rgb(45, 44, 66);
+	color: white;
 }
 
 .navbar .active {
