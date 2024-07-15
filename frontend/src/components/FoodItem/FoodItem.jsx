@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { useContext } from 'react'
+import React from 'react'
 import { assets } from '../../assets/assets'
 import './FoodItem.css'
 import { StoreContext } from '../../context/StoreContext'
 import { Rate } from 'antd'
 
-const FoodItem = ({ id, name, price, description, image }) => {
-	const { cartItems, addToCart, removeFromCart } = useContext(StoreContext)
+const FoodItem = ({ id, name, price, description, image, rate }) => {
+	const { cartItems, addToCart, removeFromCart } = React.useContext(StoreContext)
 
 	return (
 		<div className='food-item'>
@@ -38,7 +38,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
 			<div className='food-item-info'>
 				<div className='food-item-name-rating'>
 					<div className='food-item-rating-star'>
-						<Rate />
+						<Rate defaultValue={rate} />
 					</div>
 					<p>{name}</p>
 				</div>

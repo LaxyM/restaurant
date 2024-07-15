@@ -63,6 +63,7 @@ const Navbar = ({ setShowLogin }) => {
 							count={getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}
 							showZero
 							color='#45B69C'
+							overflowCount={999}
 						>
 							<img src={assets.sack_dollar} alt='' />
 						</Badge>
