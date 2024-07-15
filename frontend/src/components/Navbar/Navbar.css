@@ -20,7 +20,14 @@
 .navbar-right {
 	display: flex;
 	align-items: center;
-	gap: 40px;
+	gap: 30px;
+	justify-content: space-between;
+}
+
+.navbar-right img {
+	width: 34px;
+	height: 34px;
+
 }
 
 .navbar button {
@@ -41,7 +48,8 @@
 
 .navbar .active {
 	padding-bottom: 2px;
-	border-bottom: 2px solid #49557e;
+	border-bottom: 3px solid #49557e;
+	
 }
 
 .navbar li {
