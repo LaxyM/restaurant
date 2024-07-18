@@ -13,16 +13,22 @@ export const App = () => {
 
 	return (
 		<>
-			{showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
+			{showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : null}
+			<header className='main-header'>
+				<div className='navbar-container'>
+					<Navbar setShowLogin={setShowLogin} />
+				</div>
+			</header>
 			<div className='app'>
-				<Navbar setShowLogin={setShowLogin} />
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/cart' element={<Cart />} />
 					<Route path='/order' element={<PlaceOrder />} />
 				</Routes>
 			</div>
-			<Footer />
+			<footer className='main-footer'>
+				<Footer />
+			</footer>
 		</>
 	)
 }
